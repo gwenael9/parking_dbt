@@ -1,0 +1,17 @@
+sources:
+  - name: staging
+    description: "Schéma contenant les données brutes importées des parkings hors voirie de Bordeaux Métropole"
+    tables:
+      - name: st_park_p
+        description: "Données brutes sur les parkings, incluant informations sur les exploitants, tarifs, et types de parkings"
+        columns:
+          - name: exploit
+            description: "Nom de l'exploitant du parking"
+          - name: siret
+            description: "Numéro SIRET de l'exploitant"
+          - name: secteur
+            description: "Secteur géographique de Bordeaux Métropole où se situe le parking"
+          - name: type
+            description: "Type de parking (ex. SURFACE, GESTION_PRIVEE)"
+          - name: np_pmr
+            description: "Nombre de places réservées aux personnes à mobilité réduite"

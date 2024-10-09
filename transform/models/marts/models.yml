@@ -1,0 +1,32 @@
+models:
+  - name: exploit
+    description: "Dimension des exploitants de parkings"
+    columns:
+      - name: exploit_id
+        tests:
+          - not_null
+          - unique
+
+  - name: ta_type
+    description: "Dimension des types de tarif"
+    columns:
+      - name: ta_type_id
+        tests:
+          - not_null
+          - unique
+
+  - name: secteur
+    description: "Dimension des secteurs dans Bordeaux Métropole"
+    columns:
+      - name: secteur_id
+        tests:
+          - not_null
+          - unique
+
+  - name: type
+    description: "Dimension des types de parking"
+    columns:
+      - name: type_id
+        tests:
+          - not_null
+          - unique
