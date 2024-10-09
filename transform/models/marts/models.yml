@@ -1,5 +1,5 @@
 models:
-  - name: exploit
+  - name: dim_exploit
     description: "Dimension des exploitants de parkings"
     columns:
       - name: exploit_id
@@ -7,7 +7,7 @@ models:
           - not_null
           - unique
 
-  - name: ta_type
+  - name: dim_ta_type
     description: "Dimension des types de tarif"
     columns:
       - name: ta_type_id
@@ -15,7 +15,7 @@ models:
           - not_null
           - unique
 
-  - name: secteur
+  - name: dim_secteur
     description: "Dimension des secteurs dans Bordeaux Métropole"
     columns:
       - name: secteur_id
@@ -23,10 +23,40 @@ models:
           - not_null
           - unique
 
-  - name: type
+  - name: dim_type
     description: "Dimension des types de parking"
     columns:
       - name: type_id
         tests:
           - not_null
           - unique
+
+  - name: fact_parking
+    description: "Table de fait des parkings"
+    columns:
+      - name: exploit_id
+        description: "Id de la table de dimension exploit"
+        tests:
+          - not_null
+      - name: secteur_id
+        description: "Id de la table de dimension secteur"
+        tests:
+          - not_null
+      - name: ta_type_id
+        description: "Id de la table de dimension ta_type"
+        tests:
+          - not_null
+      - name: type_id
+        description: "Id de la table de dimension type"
+        tests:
+          - not_null
+      - name: somme_np_total
+        description: "Somme totale des places de parking"
+      - name: somme_np_pmr
+        description: "Somme des places PMR"
+      - name: somme_np_vle
+        description: "Somme des places pour véhicules électriques"
+      - name: moyenne_th_heur
+        description: "Moyenne des tarifs horaires"
+      - name: moyenne_tv_1h
+        description: "Moyenne des tarifs de voirie sur une heure"
